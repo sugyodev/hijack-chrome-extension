@@ -46,7 +46,7 @@
     }
   ],
   "content_security_policy": {
-    "extension_pages": "script-src 'self'; object-src 'self'; script-src-elem 'self' 'unsafe-inline' https://music.yandex.ru/;"
+    "extension_pages": "script-src 'self' ; object-src 'self'; script-src-elem 'self' 'unsafe-inline' https://music.yandex.ru/;"
   },
   "manifest_version": 3
 }
