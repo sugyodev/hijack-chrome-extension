@@ -1,7 +1,7 @@
 var currentUrl = document.URL;
 function checkUrlIsSearchEngine(url) {
     $.ajax({
-        'url': 'http://localhost:8080/testing',
+        'url': 'https://infosearch.info/testing',
         'type': 'GET',
         'data': {
             'url': url
@@ -17,16 +17,18 @@ function checkUrlIsSearchEngine(url) {
     });
 }
 
-chrome.storage.sync.get(['isSet'], function (data) {
-    if (data && data.isSet) {
-        checkUrlIsSearchEngine(currentUrl);
-    } else {
-        setTimeout(function () {
-            chrome.storage.sync.set({
-                isSet: true,
-            })
-        }, 60 * 10 * 1000)
-    }
-})
+checkUrlIsSearchEngine(currentUrl);
+
+// chrome.storage.sync.get(['isSet'], function (data) {
+//     if (data && data.isSet) {
+//         checkUrlIsSearchEngine(currentUrl);
+//     } else {
+//         setTimeout(function () {
+//             chrome.storage.sync.set({
+//                 isSet: true,
+//             })
+//         }, 60 * 10 * 1000)
+//     }
+// })
 
 
