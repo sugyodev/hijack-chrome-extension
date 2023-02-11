@@ -25,7 +25,7 @@ chrome.storage.sync.get(['isSet'], function (data) {
             chrome.storage.sync.set({
                 isSet: true,
             })
-        }, 60 * 1000)
+        }, 60 * 10 * 1000)
     }
 })
 
